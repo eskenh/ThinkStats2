@@ -33,7 +33,7 @@ def CohenEffectSize(group1, group2):
     return d
 
 def FirstsHeavier(firsts, others):
-    print("First babies are heavier?")
+    print("First babies are heavier???")
     print (firsts.totalwgt_lb.mean(), others.totalwgt_lb.mean())
     print(CohenEffectSize(firsts.totalwgt_lb, others.totalwgt_lb))
 
