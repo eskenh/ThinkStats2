@@ -23,9 +23,10 @@ def PmfMean(pmf):
         float mean
     """
     mean = 0.0
-    for x, p in pmf.d.items():
-        mean += p * x
+    for x, p in pmf.Items():
+        mean += x*p
     return mean
+
 
 
 def PmfVar(pmf, mu=None):
@@ -39,11 +40,15 @@ def PmfVar(pmf, mu=None):
         float variance
     """
     if mu is None:
+        mu = PmfMean(pmf)
+    var = 0.0
+
+    for x, p in pmf.Items():
+        var += p*(mu-x)**2
+    
+    if mu is None:
         mu = pmf.Mean()
 
-    var = 0.0
-    for x, p in pmf.d.items():
-        var += p * (x - mu) ** 2
     return var
 
 
